@@ -1,0 +1,5 @@
+
+.kitchen/*
+local_cache/*
+modules/*
+.DS_Store

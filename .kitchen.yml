@@ -1,0 +1,30 @@
+---
+driver:
+  name: vagrant
+  provider: vmware_fusion
+  guest: :windows
+  vm_hostname: false
+  synced_folders:
+    - ["./local_cache", "/vagrant"]
+
+provisioner:
+  name: dsc  
+  chef_installer_path: 'c:/vagrant/chef-windows-11.16.4-1.windows.msi'
+
+platforms:
+  - name: wmf5
+    transport: 
+      name: winrm 
+      max_threads: 1 
+    driver:
+      box: ws2012r2_wmf5
+  - name: wmf4
+    transport:
+      name: winrm
+      max_threads: 1
+    driver:
+      box: ws2012r2
+
+suites:
+  - name: powerplan
+    run_list: TestPowerPlan
