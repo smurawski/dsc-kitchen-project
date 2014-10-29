@@ -53,7 +53,7 @@ configuration cWebsite_StartWebsite
         file HelloWorld 
         {
           DestinationPath   = "C:\inetpub\wwwroot\index.html"
-          Content           = '<html><body>Hi</body></html>'
+          Contents          = '<html><body>Hi</body></html>'
           DependsOn         = "[WindowsFeature]IIS"
         }
 
