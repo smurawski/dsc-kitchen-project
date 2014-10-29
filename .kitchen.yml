@@ -18,13 +18,7 @@ platforms:
       max_threads: 1 
     driver:
       box: ws2012r2_wmf5
-  - name: wmf4
-    transport:
-      name: winrm
-      max_threads: 1
-    driver:
-      box: ws2012r2
 
 suites:
-  - name: powerplan
-    run_list: TestPowerPlan
+  - name: cWebsite_StopWebsite
+  - name: cWebsite_StartWebsite
