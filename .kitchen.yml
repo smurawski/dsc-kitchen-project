@@ -1,23 +1,23 @@
 ---
 driver:
+  provider: hyperv
   name: vagrant
-  provider: vmware_fusion
-  guest: :windows
-  vm_hostname: false
-  synced_folders:
-    - ["./local_cache", "/vagrant"]
+  vm_hostname: false # do not bother trying to change the hostname (sometimes fails)
+  communicator: winrm
+
+transport:
+  name: winrm
+
+verifier:
+  name: pester
 
 provisioner:
-  name: dsc  
-  chef_installer_path: 'c:/vagrant/chef-windows-11.16.4-1.windows.msi'
+  name: dsc
 
 platforms:
-  - name: wmf5
-    transport: 
-      name: winrm 
-      max_threads: 1 
+  - name: windows_2012r2
     driver:
-      box: ws2012r2_wmf5
+      box: ws2012r2
 
 suites:
   - name: cWebsite_StopWebsite
