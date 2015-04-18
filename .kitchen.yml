@@ -1,9 +1,8 @@
 ---
 driver:
-  provider: hyperv
-  name: vagrant
-  vm_hostname: false # do not bother trying to change the hostname (sometimes fails)
-  communicator: winrm
+  name: hyperv
+  memory_startup_bytes: 1073741824
+  password: 'P@ssw0rd!'
 
 transport:
   name: winrm
@@ -13,11 +12,11 @@ verifier:
 
 provisioner:
   name: dsc
+  driver:
+    parent_vhd: 'C:\Hyper-V\BaseImages\Windows2012R2-Base.vhd'
 
 platforms:
   - name: windows_2012r2
-    driver:
-      box: ws2012r2
 
 suites:
   - name: cWebsite_StopWebsite
