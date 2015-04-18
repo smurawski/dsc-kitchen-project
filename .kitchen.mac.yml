@@ -1,0 +1,24 @@
+---
+driver:
+  provider: vmware_fusion
+  name: vagrant
+  vm_hostname: false # do not bother trying to change the hostname (sometimes fails)
+  communicator: winrm
+
+transport:
+  name: winrm
+
+verifier:
+  name: pester
+
+provisioner:
+  name: dsc
+
+platforms:
+  - name: windows_2012r2
+    driver:
+      box: ws2012r2
+
+suites:
+  - name: cWebsite_StopWebsite
+  - name: cWebsite_StartWebsite
