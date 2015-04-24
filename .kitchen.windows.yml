@@ -1,8 +1,6 @@
 ---
 driver:
   name: hyperv
-  memory_startup_bytes: 1073741824
-  password: 'P@ssw0rd!'
 
 transport:
   name: winrm
@@ -12,12 +10,19 @@ verifier:
 
 provisioner:
   name: dsc
-  driver:
-    parent_vhd: 'C:\Hyper-V\BaseImages\Windows2012R2-Base.vhd'
 
 platforms:
   - name: windows_2012r2
+    driver:
+      parent_vhd: 'C:\Hyper-V\BaseImages\Windows2012R2-Base.vhd'
+      memory_startup_bytes: 1073741824
+      password: 'WalkerBlack!'
+
 
 suites:
   - name: cWebsite_StopWebsite
+    driver:
+      ip_address: 172.20.20.100
   - name: cWebsite_StartWebsite
+    driver:
+      ip_address: 172.20.20.110
