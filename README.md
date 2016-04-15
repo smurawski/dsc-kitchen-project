@@ -10,8 +10,9 @@
 * run
 ```powershell
 chef shell-init powershell | invoke-expression
-bundle install
-bundle exec kitchen test
+gem install kitchen-dsc
+gem install kitchen-pester
+kitchen test
 ```
 ### Mac
 * 
@@ -19,6 +20,7 @@ bundle exec kitchen test
 * run
 ```
 eval (chef shell-init bash)
-bundle install
-bundle exec kitchen test
+gem install kitchen-dsc
+gem install kitchen-pester
+kitchen test
 ```
