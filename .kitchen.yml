@@ -1,0 +1,13 @@
+---
+transport:
+  name: winrm
+
+verifier:
+  name: pester
+
+provisioner:
+  name: dsc
+
+suites:
+  - name: cWebsite_StopWebsite
+  - name: cWebsite_StartWebsite

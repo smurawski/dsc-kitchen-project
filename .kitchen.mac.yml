@@ -1,24 +1,18 @@
 ---
 driver:
-  provider: vmware_fusion
   name: vagrant
   vm_hostname: false # do not bother trying to change the hostname (sometimes fails)
   communicator: winrm
-
-transport:
-  name: winrm
-
-verifier:
-  name: pester
-
-provisioner:
-  name: dsc
+  linked_clones: true
+  gui: false
+  customize:
+    cpus: 2
+    memory: 2048
 
 platforms:
-  - name: windows_2012r2
+  - name: windows_2012r2_wmf4
     driver:
-      box: ws2012r2
-
-suites:
-  - name: cWebsite_StopWebsite
-  - name: cWebsite_StartWebsite
+      box: smurawski/2012R2-wmf4
+  - name: windows_2012r2_wmf5
+    driver:
+      box: smurawski/2012R2-wmf5
