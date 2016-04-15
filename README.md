@@ -12,6 +12,7 @@
 chef shell-init powershell | invoke-expression
 gem install kitchen-dsc
 gem install kitchen-pester
+$env:KITCHEN_LOCAL_YAML='.kitchen.windows.yml'
 kitchen test
 ```
 ### Mac
@@ -22,5 +23,6 @@ kitchen test
 eval (chef shell-init bash)
 gem install kitchen-dsc
 gem install kitchen-pester
+$env:KITCHEN_LOCAL_YAML='.kitchen.mac.yml'
 kitchen test
 ```
